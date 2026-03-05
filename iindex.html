@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Local Time</title>
+
+<style>
+body{
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:white;
+font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",sans-serif;
+}
+
+.clock{
+font-size:90px;
+font-weight:300;
+letter-spacing:2px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="clock" id="clock"></div>
+
+<script>
+function updateClock(){
+const now=new Date();
+
+const time=now.toLocaleTimeString([],{
+hour:'2-digit',
+minute:'2-digit',
+hour12:false
+});
+
+document.getElementById("clock").textContent=time;
+}
+
+updateClock();
+setInterval(updateClock,1000);
+</script>
+
+</body>
+</html>
